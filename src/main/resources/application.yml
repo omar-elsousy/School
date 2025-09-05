@@ -1,0 +1,30 @@
+# Oracle Database Configuration
+spring:
+  application:
+    name: spring-boot-start
+
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//localhost:1521/orclpdb
+    username: hr
+    password: hr
+
+  messages:
+    basename: messages
+    encoding: UTF-8
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9999
+
+http:
+  encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+
+
