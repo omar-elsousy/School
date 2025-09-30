@@ -5,10 +5,12 @@ import com.example.spring_boot_start.service.ErasoftSchoolService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("eraa-soft")
 @RestController
 public class ErasoftSchoolController {
     private ErasoftSchoolService erasoftSchoolService;
@@ -25,7 +27,9 @@ public class ErasoftSchoolController {
     ResponseEntity<ErasoftSchoolDto> updateStudent(@Valid @RequestBody ErasoftSchoolDto erasoftSchoolDto){
         return ResponseEntity.ok(erasoftSchoolService.update(erasoftSchoolDto));
     }
+
     @GetMapping("/students")
+    @PreAuthorize("hasRole('ADMIN')")
     ResponseEntity<List<ErasoftSchoolDto>> getAllStudents(){
         return ResponseEntity.ok(erasoftSchoolService.getAll());
     }

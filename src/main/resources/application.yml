@@ -1,5 +1,10 @@
 # Oracle Database Configuration
 spring:
+#  security:
+#    user:
+#      name: omarYml
+#      password: omarYml123
+
   application:
     name: spring-boot-start
 
@@ -26,5 +31,10 @@ http:
     charset: UTF-8
     enabled: true
     force: true
+
+token:
+  secret: dafkhkjsdLHKDJSH2332DSFAMN@#@#$!
+  time: 24h
+
 
 
